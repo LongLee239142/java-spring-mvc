@@ -27,6 +27,11 @@ public class UserController {
         model.addAttribute("hoilongle", "form controller with model");
         return "hello";
     }
+
+    @RequestMapping("/admin/user")
+    public String getUserPage() {
+        return "admin/user/create";
+    }
 }
 
 // @RestController
