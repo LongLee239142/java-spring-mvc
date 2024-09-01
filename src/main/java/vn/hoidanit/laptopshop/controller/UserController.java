@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.ui.Model;
-
+import java.util.List;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -27,6 +27,8 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
+        List<User> arUsers = this.userService.getAllUserByEmail("hoanglongvippro3@gmail.com");
+        System.out.println(arUsers);
         model.addAttribute("LongLee", "test");
         model.addAttribute("hoilongle", "form controller with model");
         return "hello";
@@ -34,16 +36,23 @@ public class UserController {
 
     @RequestMapping("/admin/user") // GET
     public String getUserPage(Model model) {
-        model.addAttribute("newUser", new User());
-        return "admin/user/create";
+        List<User> users = this.userService.getAllUser();
+        model.addAttribute("users1", users);
+        return "/admin/user/table-user";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createtUserPage(Model model, @ModelAttribute("newUser") User hoilongle) {
-        System.out.println("Run here" + hoilongle);
         this.userService.handleSaveUser(hoilongle);
-        return "hello";
+        return "redirect:/admin/user";
     }
+
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.GET)
+    public String getCreateUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "/admin/user/create";
+    }
+
 }
 
 // @RestController
