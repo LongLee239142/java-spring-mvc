@@ -20,33 +20,33 @@
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-6 col-12 mx-auto">
-                            <h3>Create a user</h3>
+                            <h3>Update a user</h3>
                             <hr>
-                            <form:form method="POST" action="/admin/user/create" modelAttribute="newUser">
+                            <form:form method="POST" action="/admin/user/update" modelAttribute="updateUser">
+                                <div class="mb-3" style="display: none;">
+                                    <label for="form-label" class="form-label">Id: </label>
+                                    <form:input type="text" class="form-control" path="id" />
+                                </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email: </label>
-                                    <form:input type="email" class="form-control" path="email" />
+                                    <label for="form-label" class="form-label">Email: </label>
+                                    <form:input type="email" class="form-control" path="email" disabled="true" />
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Password:</label>
-                                    <form:input type="password" class="form-control" path="password" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Phone number:</label>
+                                    <label for="form-label" class="form-label">Phone number:</label>
                                     <form:input type="text" class="form-control" path="phoneNumber" />
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Full Name:</label>
+                                    <label for="form-label" class="form-label">Full Name:</label>
                                     <form:input type="text" class="form-control" path="fullName" />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Address:</label>
+                                    <label for="form-label" class="form-label">Address:</label>
                                     <form:input type="text" class="form-control" path="address" />
 
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-warning">Update</button>
                                 </form>
                             </form:form>
                         </div>

@@ -36,15 +36,15 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">ID: ${id}</li>
-                                    <li class="list-group-item">Email: ${email}</li>
-                                    <li class="list-group-item">fullName: ${fullName}</li>
-                                    <li class="list-group-item">Address: ${address}</li>
+                                    <li class="list-group-item">Email: ${user.email}</li>
+                                    <li class="list-group-item">fullName: ${user.fullName}</li>
+                                    <li class="list-group-item">Address: ${user.address}</li>
+                                    <li class="list-group-item">Phone Number: ${user.phoneNumber}</li>
                                 </ul>
                             </div>
                         </div>
-
                     </div>
-
+                    <a href="/admin/user" class="btn btn-success">ComeBack</a>
                 </div>
             </body>
 
